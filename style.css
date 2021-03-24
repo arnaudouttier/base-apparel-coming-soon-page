@@ -1,5 +1,4 @@
 /* variables */
-
 :root {
     --main-font: "Josefin Sans";
     --main-font-size: 16px;
@@ -8,6 +7,7 @@
     --font-bolder-xl: 600;
     --main-bg-image: url(images/bg-pattern-desktop.svg);
     --line-height: 28px;
+    --border-radius : 40px;
     /* Colors */
     --desaturated-red: hsl(0, 36%, 70%);
     --soft-red: hsl(0, 93%, 68%);
@@ -16,17 +16,13 @@
 
 body {
     font-family: var(--main-font);
-    background-image: var(--main-bg-image);
     font-weight: var(--font-bold);
     font-size: var(--main-font-size);
     color: var(--desaturated-red);
     line-height: var(--line-height);
     display: flex;
     justify-content: center;
-}
-
-.page {
-    max-width: 576px;
+    background: linear-gradient(135deg, #fff, #fff5f5);
 }
 
 header {
@@ -83,43 +79,47 @@ header {
     opacity: 0.5;
     font-size: 13px;
     border: 1px solid var(--desaturated-red);
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-radius : var(--border-radius);
 }
 
 .form-email:invalid {
-    border: 1px solid var(--soft-red);
+    border: 1px solid red;
 }
 
 .form-submit {
     position: absolute;
-    top: -1px;
+    top: -2px;
     right: 0;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-radius : var(--border-radius);
     background-color: var(--desaturated-red);
+    background-repeat: no-repeat;
+    background-position: center center;
     background-image: url("images/icon-arrow.svg"), linear-gradient(135deg, #f8bfbf, #ee8c8c);
     box-shadow: 0 9px 27px -5px var(--desaturated-red);
     background-repeat: no-repeat;
     background-position: center center;
     border: 0;
     width: 65px;
-    height: 46px;
+    height: 49px;
     cursor: pointer;
+    transition: all .4s;
 }
 
 .form-submit:hover {
     background-image: url("images/icon-arrow.svg"), linear-gradient(135deg, #f8bfbf, #e0b5b5);
+    transform: translateX( 5px);
 }
 
 
 /* Large devices (desktops, 992px and up) */
 
 @media (min-width: 992px) {
+    body{
+        background-image: var(--main-bg-image);
+        background-size: cover;
+        background-position-y: 75%;
+    }
+
     .page {
         height: 100vh;
         max-width: 1440px;
@@ -127,31 +127,34 @@ header {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 140px 1fr;
     }
+
     header,
-    .main-content {
+    .main {
         padding: 100px 16px;
+        text-align: left;
     }
+
     .site-logo img {
         width: 160px;
     }
+
     .main-header h4 {
         font-size: 64px;
         line-height: 70px;
         letter-spacing: 18px;
     }
+
     .hero-banner {
         grid-row-start: 1;
         grid-row-end: 3;
         grid-column-start: 2;
     }
-    .main-content {
-        text-align: left;
-    }
+
     .form-text {
         padding: 18px 0 18px 24px;
     }
+
     .form-submit {
         width: 100px;
-        height: 57px;
     }
 }
