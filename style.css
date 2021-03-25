@@ -1,4 +1,5 @@
 /* variables */
+
 :root {
     --main-font: "Josefin Sans";
     --main-font-size: 16px;
@@ -7,11 +8,26 @@
     --font-bolder-xl: 600;
     --main-bg-image: url(images/bg-pattern-desktop.svg);
     --line-height: 28px;
-    --border-radius : 40px;
+    --border-radius: 40px;
     /* Colors */
     --desaturated-red: hsl(0, 36%, 70%);
     --soft-red: hsl(0, 93%, 68%);
     --dark-grayish-red: hsl(0, 6%, 24%);
+}
+
+
+/* Class */
+
+.errorInput {
+    border: 2px solid red!important;
+}
+
+.form-error-message {
+    color: var(--soft-red);
+}
+
+.form-valid-message {
+    color: rgb(91, 138, 91);
 }
 
 body {
@@ -68,36 +84,38 @@ header {
 
 .form {
     position: relative;
-    top: 0;
-    left: 0;
 }
 
-.form-email {
-    width: 90%;
-    padding: 14px 0 14px 24px;
+.form label {
+    display: none;
+}
+
+input[type="email"] {
+    width: 86%;
+    padding: 14px;
     color: var(--desaturated-red);
     opacity: 0.5;
     font-size: 13px;
     border: 1px solid var(--desaturated-red);
-    border-radius : var(--border-radius);
+    border-radius: var(--border-radius);
 }
 
-.form-email:invalid {
-    border: 1px solid red;
+.email-error-icon {
+    position: absolute;
+    width: 28px;
+    right: 84px;
+    top: 10px;
 }
 
 .form-submit {
     position: absolute;
     top: -2px;
     right: 0;
-    border-radius : var(--border-radius);
-    background-color: var(--desaturated-red);
-    background-repeat: no-repeat;
+    border-radius: var(--border-radius);
     background-position: center center;
+    background-repeat: no-repeat;
     background-image: url("images/icon-arrow.svg"), linear-gradient(135deg, #f8bfbf, #ee8c8c);
     box-shadow: 0 9px 27px -5px var(--desaturated-red);
-    background-repeat: no-repeat;
-    background-position: center center;
     border: 0;
     width: 65px;
     height: 49px;
@@ -110,16 +128,21 @@ header {
     transform: translateX( 5px);
 }
 
+.form-error-message,
+.form-valid-message {
+    padding-left: 32px;
+    text-align: left;
+}
+
 
 /* Large devices (desktops, 992px and up) */
 
 @media (min-width: 992px) {
-    body{
+    body {
         background-image: var(--main-bg-image);
         background-size: cover;
         background-position-y: 75%;
     }
-
     .page {
         height: 100vh;
         max-width: 1440px;
@@ -127,34 +150,33 @@ header {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 140px 1fr;
     }
-
     header,
     .main {
         padding: 100px 16px;
         text-align: left;
     }
-
     .site-logo img {
         width: 160px;
     }
-
     .main-header h4 {
         font-size: 64px;
         line-height: 70px;
         letter-spacing: 18px;
     }
-
     .hero-banner {
         grid-row-start: 1;
         grid-row-end: 3;
         grid-column-start: 2;
     }
-
-    .form-text {
-        padding: 18px 0 18px 24px;
+    input[type="email"] {
+        padding: 20px;
     }
-
+    .email-error-icon {
+        right: 116px;
+        top: 16px;
+    }
     .form-submit {
         width: 100px;
+        height: 61px;
     }
 }
