@@ -14,12 +14,12 @@
 
 <body>
 
-    <div id="app" class="page">
+    <div class="page">
 
         <header>
 
             <div class="site-logo">
-                <img src="images\logo.svg" alt="site logo">
+                <img src="images/logo.svg" alt="site logo">
             </div>
 
         </header>
@@ -28,8 +28,8 @@
         <div class="hero-banner">
 
             <picture>
-                <source srcset="images\hero-desktop.jpg" media="(min-width: 992px)">
-                <img src="images\hero-mobile.jpg" alt="hero">
+                <source srcset="images/hero-desktop.jpg" media="(min-width: 992px)">
+                <img src="images/hero-mobile.jpg" alt="hero">
             </picture>
 
         </div>
@@ -46,11 +46,11 @@
             </div>
 
             <div class="main-footer">
-                <form class="form" action="">
+                <form class="form" action="/">
                     <label for="emailAddress">Email</label>
                     <input class="form-email" type="email" id="emailAddress" placeholder="Email Address" v-model="email" :class="[valid ? validInput : errorInput]">
-                    <img v-show="!valid" class="email-error-icon" src="images\icon-error.svg" alt="email error icon ">
-                    <button type="submit" class="form-submit" name=""submit v-on:click.prevent="validEmail"></button>
+                    <img v-show="!valid" class="email-error-icon" src="images/icon-error.svg" alt="email error icon ">
+                    <button type="submit" class="form-submit" v-on:click.prevent="validEmail"></button>
                     <p :class="[valid ? formValidMessage  : formErrorMessage]"> {{formMessage}}</p>
                 </form>
             </div>
